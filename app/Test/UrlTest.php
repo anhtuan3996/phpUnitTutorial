@@ -12,11 +12,8 @@ class UrlTest extends TestCase
      *
      * @dataProvider providerTestSluggifyReturnsSluggifiedString
      */
-    public function testSluggifyReturnsSluggifiedString()
+    public function testSluggifyReturnsSluggifiedString($originalString, $expectedResult)
     {
-        $originalString = 'This string will be sluggified';
-        $expectedResult = 'this-string-will-be-sluggified';
-
         $url = new Url();
 
         $result = $url->sluggify($originalString);
