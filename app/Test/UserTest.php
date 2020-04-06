@@ -54,4 +54,17 @@ class UserTest extends TestCase
 
         return $method->invokeArgs($object, $parameters);
     }
+
+    public function testSetPasswordReturnsFalseWhenPasswordLengthIsTooShort()
+    {
+        $details = array();
+
+        $user = new User($details);
+
+        $password = 'fub';
+
+        $result = $user->setPassword($password);
+
+        $this->assertFalse($result);
+    }
 }
